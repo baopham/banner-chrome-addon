@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "banner",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "Banner for specific domains",
+    "description": "The description of the application"
+  }
+}

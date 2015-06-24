@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Banner Extension Options</title>
+    <link rel="stylesheet" href="purecss.min.css">
+  </head>
+  <body>
+
+    <div class="content">
+      <center>
+        <form class="pure-form pure-form-aligned">
+          <fieldset>
+            <legend><h2>Banner Extension Options</h2></legend>
+            <div class="pure-control-group">
+              <label>Domains</label>
+              <input id="domains" type="text" placeholder="Separated by pipe, e.g: *.dev|*.com:8080">
+            </div>
+
+            <div class="pure-control-group">
+              <label>Banner text</label>
+              <input id="banner" type="text" placeholder="Banner text">
+            </div>
+
+            <p id="status"></p>
+
+            <div class="pure-controls">
+              <button id="save" class="pure-button pure-button-primary">Save</button>
+            </div>
+
+          </fieldset>
+        </form>
+      </center>
+    </div>
+
+    <script src="options.js"></script>
+  </body>
+</html>
