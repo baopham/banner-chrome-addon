@@ -23,9 +23,9 @@ function save_options() {
 // Restores select box and checkbox state using the preferences
 // stored in chrome.storage.
 function restore_options() {
-    // Default: "*.dev", "Bao's ENV"
+    // Default: "*\.dev", "Bao's ENV"
     chrome.storage.sync.get({
-            domains: '*.dev',
+            domains: '*\\.dev',
             banner: "Bao's ENV"
     }, function(items) {
         document.getElementById('domains').value = items.domains;

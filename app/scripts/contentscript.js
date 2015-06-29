@@ -13,7 +13,7 @@ notification = document.createElement('div');
 document.body.appendChild(notification);
 
 chrome.storage.sync.get({
-        domainsRegex: '[^ ]*.dev',
+        domainsRegex: "[^ ]*\\.dev",
         banner: "Bao's ENV"
 }, function(items) {
     if (document.URL.match(items.domainsRegex)) {
