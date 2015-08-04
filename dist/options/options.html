@@ -2,36 +2,73 @@
 <html>
   <head>
     <title>Banner Extension Options</title>
-    <link rel="stylesheet" href="purecss.min.css">
+    <link rel="stylesheet" href="theme.min.css">
   </head>
-  <body>
+  <body ng-app="options">
 
-    <div class="content">
-      <center>
-        <form class="pure-form pure-form-aligned">
-          <fieldset>
-            <legend><h2>Banner Extension Options</h2></legend>
-            <div class="pure-control-group">
-              <label>Domains</label>
-              <input id="domains" type="text" placeholder="Separated by pipe, e.g: *.dev|*.com:8080">
-            </div>
-
-            <div class="pure-control-group">
-              <label>Banner text</label>
-              <input id="banner" type="text" placeholder="Banner text">
-            </div>
-
-            <p id="status"></p>
-
-            <div class="pure-controls">
-              <button id="save" class="pure-button pure-button-primary">Save</button>
-            </div>
-
-          </fieldset>
-        </form>
-      </center>
+    <div class="container" ng-controller="OptionsController as vm">
+      <h2>Banner Extension Options</h2>
+      <div class="alert alert-success" ng-if="vm.status">
+        {{vm.status}}
+      </div>
+      
+      <p class="help-block">
+        Use * for wildcard and pipe for multiple domains (e.g.: *.dev|*.local)
+      </p>
+      <form name="optionsForm" class="well">
+        <fieldset ng-repeat="project in vm.projects">
+          <legend>
+            {{project.name}} <a class="text-danger" ng-click="vm.remove($index)">&times;</a>
+          </legend>
+          
+          <div class="form-group">
+            <label>Project</label>
+            <input
+                  ng-model="project.name"
+                  required
+                  type="text"
+                  class="form-control"
+                  placeholder="Project name">
+          </div>
+          
+          <div class="form-group">
+            <label>Domains</label>
+            <input
+                  ng-model="project.domain"
+                  required
+                  class="form-control"
+                  type="text"
+                  placeholder="Separated by pipe, e.g: *.dev|*.com:8080">
+          </div>
+          
+          <div class="form-group">
+            <label>Banner text</label>
+            <input
+                  ng-model="project.banner"
+                  required
+                  class="form-control"
+                  type="text"
+                  placeholder="Banner text">
+          </div>
+          <hr>
+        </fieldset>
+        
+        
+        <div class="form-group">
+          <button class="btn btn-primary pull-right" ng-click="vm.add()">
+            &#43; Add project
+          </button>
+          <button id="save"
+                  ng-disabled="optionsForm.$invalid"
+                  ng-click="vm.save()"
+                  class="btn btn-success">
+            Save
+          </button>
+        </div>
+      </form>
     </div>
 
+    <script src="angular.min.js"></script>
     <script src="options.js"></script>
   </body>
 </html>

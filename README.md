@@ -1,8 +1,9 @@
 Banner for specific domains
 ======
-Specify domains (e.g: `*\.dev|*\.local`) for the banner to appear:
+Specify domains (e.g: `*.dev|*.local`) for the banner to appear:
 
-![banner](screenshot.png)
+![banner](banner-screenshot.png)
+![settings](settings-screenshot.png)
 
 Usage:
 ------
